@@ -1,0 +1,174 @@
+@use "../global/global" as g;
+
+.mv {
+    position: relative;
+    &__canvas {
+        opacity: 0;
+        overflow: hidden;
+    }
+    &__title {
+        position: absolute;
+        top: g.get_vw(130);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        @include g.mq(mobile) {
+            top: g.get_vw(170);
+        }
+    }
+    &__wrapper {
+        overflow: hidden;
+        text-align: center;
+    }
+    &__text {
+        display: inline-block;
+        transform: translate3d(0, 100%, 0);
+        font-size: g.get_vw(100);
+        font-family: g.$font-en;
+        color: g.$color-black;
+        opacity: 0;
+        text-align: center;
+        @include g.mq(mobile) {
+            font-size: g.get_vw(40);
+        }
+    }
+    &__sub-title {
+        position: absolute;
+        top: g.get_vw(320);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        @include g.mq(mobile) {
+            top: g.get_vw(240);
+        }
+    }
+    &__sub-text {
+        display: inline-block;
+        transform: scale3d(0, 0, 0);
+        font-size: g.get_vw(50);
+        font-family: g.$font-en;
+        color: g.$color-black;
+        text-indent: 2px;
+        @include g.mq(mobile) {
+            font-size: g.get_vw(35);
+        }
+    }
+    &__buttons {
+        position: absolute;
+        bottom: g.get_vw(280);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: map-get(g.$z, 'link');
+        width: g.get_vw(1400);
+        transform: translate3d(0, 100%, 0);
+        @include g.mq(mobile) {
+            bottom: g.get_vw(350);
+            width: 100%;
+        }
+    }
+    &__button {
+        display: inline-block;
+        color: g.$color-black;
+        font-family: g.$font-en;
+        font-size: g.get_vw(40);
+        transform: translate3d(0, 100%, 0);
+        margin: 0 g.get_vw(10) 0 0;
+        transition: g.$easeCustom1 0.6s;
+        text-decoration: none;
+        @include g.mq(mobile) {
+            font-size: g.get_vw(43);
+            margin: 0 g.get_vw(15) 0 0;
+            transform: translate3d(0, 200%, 0);
+        }
+        &:hover {
+            transition: color 0.3s ease;
+        }
+
+        &--red {
+            &:hover {
+                color: g.$color-red;
+            }
+        }
+        &--blue {
+            &:hover {
+                color: g.$color-blue;
+            }
+        }
+        &--yellow {
+            &:hover {
+                color: g.$color-yellow;
+            }
+        }
+        &--green {
+            &:hover {
+                color: g.$color-green;
+            }
+        }
+        &--pink {
+            &:hover {
+                color: g.$color-pink;
+            }
+        }
+        &--orange {
+            &:hover {
+                color: g.$color-orange;
+            }
+        }
+        &--purple {
+            &:hover {
+                color: g.$color-purple;
+            }
+        }
+    }
+    &__links {
+        position: absolute;
+        bottom: g.get_vw(130);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: map-get(g.$z, 'link');
+        @include g.mq(mobile) {
+            top: auto;
+            bottom: g.get_vw(170);
+        }
+    }
+    &__link {
+        display: inline-block;
+        color: g.$color-black;
+        font-family: g.$font-en;
+        font-size: g.get_vw(30);
+        transform: translate3d(0, 100%, 0);
+        margin: 0 g.get_vw(10) 0 0;
+        transition: g.$easeCustom1 0.6s;
+        text-decoration: none;
+        @include g.mq(mobile) {
+            font-size: g.get_vw(43);
+            margin: 0 g.get_vw(15) 0 0;
+        }
+        &::after {
+            content: attr(data-hover);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transform: rotateX(90deg);
+            transition: g.$easeCustom1 0.3s;
+            opacity: 0;
+            color: g.$color-red;
+            height: 0;
+        }
+        &:hover {
+            color: transparent;
+
+            &::after {
+                transform: rotateX(0deg);
+                top: 0;
+                opacity: 1;
+                height: 100%;
+            }
+        }
+        &:visited {
+            text-decoration: none;
+        }
+    }
+}
