@@ -29,5 +29,3 @@ npm install vue vue-loader vue-template-compiler --save-dev
 # キャッシュパラメータ付与
 
 <%= htmlWebpackPlugin.options.cacheParam %>
-
-gltf-pipeline -i glb/no0.glb -o draco/no0.glb -d
